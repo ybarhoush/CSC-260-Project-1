@@ -13,6 +13,7 @@ import java.awt.*;
 public class Segment extends Shape
 {
     // YOU FILL IN INSTANCE VARIABLES AND METHODS.
+
     //------------------------------------------------------- Yazan Barhoush Start
 
     /**
