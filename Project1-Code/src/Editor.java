@@ -2,7 +2,7 @@
  * Editor.java
  * An applet for an object-oriented graphical editor.
  * This class implements the GUI for the editor.
- * 
+ *
  * This is a provided file with parts to be filled in.
  *
  * Written by THC for CS 5 Lab Assignment 3.
@@ -15,7 +15,7 @@ import javax.swing.*;
 
 public class Editor extends JApplet {
   private static final long serialVersionUID = 1L;
-  
+
   private final int APPLET_WIDTH = 700, APPLET_HEIGHT = 500;
   private final Color initialColor = Color.red; // default color starts as red
 
@@ -134,7 +134,7 @@ public class Editor extends JApplet {
    */
   private class RectButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      //cmd = new AddRect();
       repaint();
     }
   }
@@ -144,7 +144,7 @@ public class Editor extends JApplet {
    */
   private class EllipseButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      //cmd = new AddEllipse();
       repaint();
     }
   }
@@ -244,7 +244,7 @@ public class Editor extends JApplet {
    */
   private class ColorIndicator extends JPanel {
     private static final long serialVersionUID = 0;
-    
+
     private final int COLORBOX_WIDTH = 20, COLORBOX_HEIGHT = 20;
 
     /**
@@ -264,15 +264,15 @@ public class Editor extends JApplet {
     }
   }
 
-  /** 
+  /**
    * CanvasPanel is the class upon which we actually draw.  It listens
    * for mouse events and calls the appropriate method of the current
    * command.
-   */ 
+   */
   private class CanvasPanel extends JPanel implements MouseListener,
-      MouseMotionListener {
+          MouseMotionListener {
     private static final long serialVersionUID = 0;
-    
+
     /**
      * Constructor just needs to set up the CanvasPanel as a listener.
      */
@@ -308,7 +308,7 @@ public class Editor extends JApplet {
       repaint();
     }
 
-    /** 
+    /**
      * When the mouse is dragged, call the executeDrag method of the
      * current command.
      */

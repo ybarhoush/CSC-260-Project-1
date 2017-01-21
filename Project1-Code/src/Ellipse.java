@@ -15,7 +15,7 @@ public class Ellipse extends Shape {
 
   /**
    * Constructor just saves the parameters in the instance variables.
-   * 
+   *
    * @param left x coordinate of the top-left corner
    * @param top y coordinate of the top-left corner
    * @param width the width
@@ -80,7 +80,8 @@ public class Ellipse extends Shape {
    * 
    * @return the center of the Ellipse
    */
-  public Point getCenter() {
-    return new Point(left + (width / 2), top + (height / 2));
+  public Point getCenter()
+  {
+      return new Point(left + (width / 2), top + (height / 2));
   }
 }
