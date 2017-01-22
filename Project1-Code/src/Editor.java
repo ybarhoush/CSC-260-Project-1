@@ -144,7 +144,7 @@ public class Editor extends JApplet {
    */
   private class EllipseButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      //cmd = new AddEllipse();
+      cmd = new AddEllipse();
       repaint();
     }
   }

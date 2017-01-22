@@ -22,7 +22,8 @@ public class Ellipse extends Shape {
    * @param height the height
    * @param color the color
    */
-  public Ellipse(int left, int top, int width, int height, Color color) {
+  public Ellipse(int left, int top, int width, int height, Color color)
+  {
     super(color);
     this.left = left;
     this.top = top;
@@ -35,7 +36,8 @@ public class Ellipse extends Shape {
    *
    * @param page the page you wish to draw on
    */
-  public void drawShape(Graphics page) {
+  public void drawShape(Graphics page)
+  {
     page.fillOval(left, top, width, height);
   }
 
@@ -44,7 +46,8 @@ public class Ellipse extends Shape {
    * 
    * @param p point tested for containment
    */
-  public boolean containsPoint(Point p) {
+  public boolean containsPoint(Point p)
+  {
     return pointInEllipse(p, left, top, width, height);
   }
 
