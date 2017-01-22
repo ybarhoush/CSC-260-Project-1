@@ -204,7 +204,7 @@ public class Editor extends JApplet {
    */
   private class ExchangeButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-
+      cmd = new ExchangeCmd();
       repaint();
     }
   }
@@ -214,7 +214,9 @@ public class Editor extends JApplet {
    */
   private class RedButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      colorBox.show(Color.red); // show that the new default color is red
+      dwg.setColor(Color.red);
+      cmd = new ColorCmd();
       repaint();
     }
   }
@@ -224,7 +226,9 @@ public class Editor extends JApplet {
    */
   private class GreenButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      colorBox.show(Color.green); // show that the new default color is red
+      dwg.setColor(Color.green);
+      cmd = new ColorCmd();
       repaint();
     }
   }
@@ -234,7 +238,9 @@ public class Editor extends JApplet {
    */
   private class BlueButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      colorBox.show(Color.blue); // show that the new default color is red
+      dwg.setColor(Color.blue);
+      cmd = new ColorCmd();
       repaint();
     }
   }

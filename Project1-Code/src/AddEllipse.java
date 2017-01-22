@@ -29,12 +29,12 @@ public class AddEllipse extends Command {
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
-            dwg.addShape(new Ellipse(
+            dwg.listOfShapes.add(new Ellipse(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.red));
+                    dwg.getColor()));
         }
         else {
             dwg.replaceFront(new Ellipse(
@@ -42,7 +42,7 @@ public class AddEllipse extends Command {
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.red));
+                    dwg.getColor()));
         }
         numDrags++;
     }

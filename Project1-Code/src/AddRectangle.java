@@ -30,12 +30,12 @@ public class AddRectangle extends Command
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
-            dwg.addShape(new Rectangle(
+            dwg.listOfShapes.add(new Rectangle(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.blue));
+                    dwg.getColor()));
         }
         else {
             dwg.replaceFront(new Rectangle(
@@ -43,7 +43,7 @@ public class AddRectangle extends Command
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.blue));
+                    dwg.getColor()));
         }
         numDrags++;
     }
