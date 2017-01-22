@@ -34,7 +34,7 @@ public class AddEllipse extends Command {
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.blue));
+                    Color.red));
         }
         else {
             dwg.replaceFront(new Ellipse(
@@ -42,7 +42,7 @@ public class AddEllipse extends Command {
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
-                    Color.blue));
+                    Color.red));
         }
         numDrags++;
     }
