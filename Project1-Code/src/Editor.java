@@ -134,7 +134,7 @@ public class Editor extends JApplet {
    */
   private class RectButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      //cmd = new AddRect();
+      cmd = new AddRectangle();
       repaint();
     }
   }

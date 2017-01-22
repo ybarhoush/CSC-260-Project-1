@@ -1,16 +1,16 @@
 /**
- * AddEllipse Class
- * adding Ellipse to the Drawing
+ * AddRectangle Class
+ * adding Rectangle to the Drawing
  * Created by fedora on 1/21/17.
  */
 
 import java.awt.*;
 
-public class AddEllipse extends Command {
+public class AddRectangle extends Command {
     private Point pressedPoint;				// Where the user clicks
     private int numDrags;		// Number of times executeDrag is called
 
-    public AddEllipse() {
+    public AddRectangle() {
         pressedPoint = null;
         numDrags = 0;
     }
@@ -29,7 +29,7 @@ public class AddEllipse extends Command {
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
-            dwg.addShape(new Ellipse(
+            dwg.addShape(new Rectangle(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
@@ -37,7 +37,7 @@ public class AddEllipse extends Command {
                     Color.blue));
         }
         else {
-            dwg.replaceFront(new Ellipse(
+            dwg.replaceFront(new Rectangle(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
