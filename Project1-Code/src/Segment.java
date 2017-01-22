@@ -16,25 +16,41 @@ public class Segment extends Shape
 
     //------------------------------------------------------- Yazan Barhoush Start
 
+    private int left, top; // left and top of Ellipse
+    private int width, height; // Ellipse's height and width
+    private static final int tolerance = 3;
     /**
-     * Constructor
-     * Create a Shape, setting its color
-     * @param c the color you wish the shape to initially have
+     * Constructor just saves the parameters in the instance variables.
+     *
+     * @param left x coordinate of the top-left corner
+     * @param top y coordinate of the top-left corner
+     * @param width the width
+     * @param height the height
+     * @param color the color
      */
-    public Segment(Color c)
+    public Segment(int left, int top, int width, int height, Color color)
     {
-        super(c);
+        super(color);
+        this.left = left;
+        this.top = top;
+        this.width = width;
+        this.height = height;
     }
 
     /**
-     * Draw
+     * Have the segment draw itself.
+     *
+     * @param page the page you wish to draw on
      */
     public void drawShape(Graphics page)
-    {}
+    {
+        page.drawLine(left, top, width, height);
+    }
 
     /**
-     * @Return True if a given point is within the segment's tolerance,
-     * or false if not
+     * Return true if the Segment contains Point p, false otherwise.
+     *
+     * @param p point tested for containment
      */
     public boolean containsPoint(Point p)
     {
@@ -42,18 +58,25 @@ public class Segment extends Shape
     }
 
     /**
-     * Move
-     * Yazan Barhoush
+     * Have the Segment move itself.
+     *
+     * @param deltaX new x coordinate
+     * @param deltaY new y coordinate
      */
     public void move(int deltaX, int deltaY)
-    {}
+    {
+        left += deltaX;
+        top += deltaY;
+    }
 
     /**
-     * @Return the center point of the line segment
+     * Return the Segment's center.
+     *
+     * @return the center of the Ellipse
      */
     public Point getCenter()
     {
-        return null;
+        return new Point(left + (width / 2), top + (height / 2));
     }
 
     //------------------------------------------------------- Yazan Barhoush End
