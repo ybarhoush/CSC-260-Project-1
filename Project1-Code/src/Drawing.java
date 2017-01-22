@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.awt.*;
 
@@ -49,27 +50,52 @@ public class Drawing
 
     /**
      * returns the frontmost Shape in the drawing that contains the Point
-     * or null if no Shape contains the Point,
-     * given a reference to a Point
+     * or null if no Shape contains the Point, given a reference to a Point
      * called by: executeClick method in ExchangeCmd.java
      * @return front most shape contains the point or null if no shape is found
      * @params p: the point under which you wish to find the frontmost shape
      */
-    public Shape getFrontmostContainer(Point p)
-    {return null;}
-
-
-    public ArrayList<Shape> getlistOfShapes()
+    public Shape getFrontmostContainer (Point p)
     {
-        return this.listOfShapes;
-    }
+        ArrayList<Shape> shapesAtPoint = new ArrayList<>();         //ArrayList of all shapes at reference point
+        int sizeOfShapesAtPoint;                                    //size of shapesAtPoint
+        int index;
 
+        for (index = 0; index < listOfShapes.size(); index++)       //iterate through indices of listOfShapes Array
+        {
+            if (listOfShapes.get(index).containsPoint(p))           // if Shape contains Point p, returns the Shape
+                                                                    // at the specified position in listOfShapes... Then
+                shapesAtPoint.add(listOfShapes.get(index));         //add shape to shapesAtPoint
+        }
+
+        sizeOfShapesAtPoint = shapesAtPoint.size();                 //get the size of shapesAtPoint
+        if (sizeOfShapesAtPoint != 0)                               //if shapesAtPoint contains the Point
+            return shapesAtPoint.get(shapesAtPoint.size()-1);       //return the frontmost Shape in the drawing
+        else
+            return null;                                            //or null if no Shape contains the Point
+
+    }
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
     /**
      * Replace the frontmost shape with a new shape.
      * @param shape
      */
-    public void replaceFront(Shape shape) {
+    public void replaceFront(Shape shape)
+    {
         listOfShapes.remove(listOfShapes.size()-1);
         listOfShapes.add(shape);
+    }
+
+    /**
+     * Removes a shape from the drawing.
+     * @param shape
+     */
+    public void deleteShape(Shape shape)
+    {
+        if (shape != null)                                          //Check if shape is not null
+        {
+            listOfShapes.remove(listOfShapes.indexOf(shape));       //Remove shape
+        }
     }
 }
