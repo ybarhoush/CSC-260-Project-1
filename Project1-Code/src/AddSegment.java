@@ -29,12 +29,12 @@ public class AddSegment extends Command {
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
-            dwg.addShape(new Segment(
+            dwg.listOfShapes.add(new Segment(
                     pressedPoint.x,
                     pressedPoint.y,
                     p.x,
                     p.y,
-                    Color.blue));
+                    dwg.getColor()));
         }
         else {
             dwg.replaceFront(new Segment(
@@ -42,7 +42,7 @@ public class AddSegment extends Command {
                     pressedPoint.y,
                     p.x,
                     p.y,
-                    Color.blue));
+                    dwg.getColor()));
         }
         numDrags++;
     }

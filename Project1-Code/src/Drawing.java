@@ -13,6 +13,7 @@ import java.awt.*;
 
 public class Drawing {
     public ArrayList<Shape> listOfShapes;      //list of Shapes
+    private Color currentColor;               //current drawing color
 
     /**
      * A constructor, which creates an empty drawing
@@ -20,17 +21,10 @@ public class Drawing {
      *
      * @param initialColor: default color, starts as red according to Editor.java
      */
-    public Drawing(Color initialColor) {
+    public Drawing(Color initialColor)
+    {
+        currentColor = initialColor;
         listOfShapes = new ArrayList<>();
-    }
-
-    /**
-     * Add a new shape to the ArrayList listOfShapes
-     *
-     * @param shape
-     */
-    public void addShape(Shape shape) {
-        listOfShapes.add(shape);
     }
 
     /**
@@ -75,7 +69,6 @@ public class Drawing {
     }
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
-
     /**
      * Replace the frontmost shape with a new shape.
      * called by: Add'Shape'.java
@@ -99,9 +92,8 @@ public class Drawing {
             listOfShapes.remove(listOfShapes.indexOf(shape));       //Remove shape
         }
     }
-
-//----------------------------------------------------------------
-//----------------------------------------------------------------
+//------------------------------ Move Methods -------------------------------------------
+//---------------------------------------------------------------------------------------
     /**
      * Moves a shape to the front
      * called by: moveToFrontCmd.java
@@ -112,7 +104,7 @@ public class Drawing {
         if (shape != null)
         {
             deleteShape(shape);
-            addShape(shape);
+            listOfShapes.add(shape);
         }
     }
 
@@ -128,5 +120,24 @@ public class Drawing {
             deleteShape(shape);
             listOfShapes.add(0, shape);
         }
+    }
+//------------------------ Color Handling Methods ---------------------------------------
+//---------------------------------------------------------------------------------------
+    /**
+     * Set drawing color
+     * @param drawColor
+     */
+    public void setColor(Color drawColor)
+    {
+        currentColor = drawColor;
+    }
+
+    /**
+     * Get drawing color
+     * @return currentColor
+     */
+    public Color getColor()
+    {
+        return currentColor;
     }
 }
