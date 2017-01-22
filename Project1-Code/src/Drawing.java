@@ -8,9 +8,12 @@ import java.awt.*;
  * @author Yazan Barhoush
  */
 
+
+
 public class Drawing
 {
-    private ArrayList<Shape> listOfShapes;      //list of Shapes
+    public ArrayList<Shape> listOfShapes;      //list of Shapes
+
     /**
      * A constructor, which creates an empty drawing
      * called by: init method in Editor.java
@@ -54,4 +57,19 @@ public class Drawing
      */
     public Shape getFrontmostContainer(Point p)
     {return null;}
+
+
+    public ArrayList<Shape> getlistOfShapes()
+    {
+        return this.listOfShapes;
+    }
+
+    /**
+     * Replace the frontmost shape with a new shape.
+     * @param shape
+     */
+    public void replaceFront(Shape shape) {
+        listOfShapes.remove(listOfShapes.size()-1);
+        listOfShapes.add(shape);
+    }
 }
