@@ -12,29 +12,32 @@ import java.awt.*;
 
 public class Segment extends Shape
 {
-    // YOU FILL IN INSTANCE VARIABLES AND METHODS.
-
     //------------------------------------------------------- Yazan Barhoush Start
+    // YOU FILL IN INSTANCE VARIABLES AND METHODS.
+    private int x1;		// Start point x-coordinate
+    private int x2;		// End point x-coordinate
 
-    private int left, top; // left and top of Ellipse
-    private int width, height; // Ellipse's height and width
+    private int y1;		// Start point y-coordinate
+    private int y2;     // End point y-coordinate
+
     private static final int tolerance = 3;
+
     /**
-     * Constructor just saves the parameters in the instance variables.
-     *
-     * @param left x coordinate of the top-left corner
-     * @param top y coordinate of the top-left corner
-     * @param width the width
-     * @param height the height
-     * @param color the color
+     * Constructor.
+     * Set x1, y1, x2, and y2 according to the parameters.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param color
      */
-    public Segment(int left, int top, int width, int height, Color color)
+    public Segment(int x1,int y1,int x2,int y2,Color color) 
     {
         super(color);
-        this.left = left;
-        this.top = top;
-        this.width = width;
-        this.height = height;
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Segment extends Shape
      */
     public void drawShape(Graphics page)
     {
-        page.drawLine(left, top, width, height);
+        page.drawLine(x1, y1, x2, y2);
     }
 
     /**
@@ -56,15 +59,15 @@ public class Segment extends Shape
     {
         boolean distanceToPoint;
         boolean withinTolerance;
-        distanceToPoint = distanceToPoint(p,left,top,width,height) <= tolerance;
+        distanceToPoint = distanceToPoint(p,x1,y1,x2,y2)  <= tolerance;
         withinTolerance = almostContainsPoint(p,
-                Math.min(left,width),
-                Math.min(top,height),
-                Math.max(width,left),
-                Math.max(height,top),
+                Math.min(x1,x2),
+                Math.min(y1,y2),
+                Math.max(x2,x1),
+                Math.max(y2,y1),
                 tolerance);
 
-                return distanceToPoint && withinTolerance;
+        return distanceToPoint && withinTolerance;
     }
 
     /**
@@ -75,8 +78,10 @@ public class Segment extends Shape
      */
     public void move(int deltaX, int deltaY)
     {
-        width += deltaX;
-        height += deltaY;
+        x1 += deltaX;
+        x2 += deltaX;
+        y1 += deltaY;
+        y2 += deltaY;
     }
 
     /**
@@ -86,7 +91,7 @@ public class Segment extends Shape
      */
     public Point getCenter()
     {
-        return new Point(left + (width / 2), top + (height / 2));
+        return new Point((x1+x2)/2,(y1+y2)/2);
     }
 
     //------------------------------------------------------- Yazan Barhoush End
