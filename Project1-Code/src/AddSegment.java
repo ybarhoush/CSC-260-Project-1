@@ -30,18 +30,18 @@ public class AddSegment extends Command {
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
             dwg.addShape(new Segment(
-                    Math.min(pressedPoint.x,p.x),
-                    Math.min(pressedPoint.y,p.y),
-                    Math.abs(pressedPoint.x-p.x),
-                    Math.abs(pressedPoint.y-p.y),
+                    pressedPoint.x,
+                    pressedPoint.y,
+                    p.x,
+                    p.y,
                     Color.blue));
         }
         else {
             dwg.replaceFront(new Segment(
-                    Math.min(pressedPoint.x,p.x),
-                    Math.min(pressedPoint.y,p.y),
-                    Math.abs(pressedPoint.x-p.x),
-                    Math.abs(pressedPoint.y-p.y),
+                    pressedPoint.x,
+                    pressedPoint.y,
+                    p.x,
+                    p.y,
                     Color.blue));
         }
         numDrags++;
