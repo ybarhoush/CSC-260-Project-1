@@ -3,11 +3,11 @@
  */
 import java.awt.*;
 
-public class moveToFrontCmd extends Command
+public class MoveToFrontCmd extends Command
 {
 
     /**
-     *
+     * move the frontmost shape clicked to the front
      */
     public void executeClick(Point p, Drawing dwg)
     {
