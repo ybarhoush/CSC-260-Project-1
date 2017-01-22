@@ -3,11 +3,11 @@
  */
 import java.awt.*;
 
-public class moveToBackCmd extends Command
+public class MoveToBackCmd extends Command
 {
 
     /**
-     *
+     * move the frontmost shape clicked to the back
      */
     public void executeClick(Point p, Drawing dwg)
     {

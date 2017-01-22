@@ -164,7 +164,7 @@ public class Editor extends JApplet {
    */
   private class MoveButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+      cmd = new MoveCmd();
       repaint();
     }
   }
@@ -184,7 +184,7 @@ public class Editor extends JApplet {
    */
   private class FrontButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      cmd = new moveToFrontCmd();
+      cmd = new MoveToFrontCmd();
       repaint();
     }
   }
@@ -194,7 +194,7 @@ public class Editor extends JApplet {
    */
   private class BackButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      cmd = new moveToBackCmd();
+      cmd = new MoveToBackCmd();
       repaint();
     }
   }
@@ -204,7 +204,7 @@ public class Editor extends JApplet {
    */
   private class ExchangeButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      // YOU FILL THIS IN.
+
       repaint();
     }
   }
