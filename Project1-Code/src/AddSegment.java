@@ -1,17 +1,16 @@
 /**
- * AddRectangle Class
- * adding Rectangle to the Drawing
+ * AddSegment Class
+ * adding Segment to the Drawing
  * Created by fedora on 1/21/17.
  */
 
 import java.awt.*;
 
-public class AddRectangle extends Command
-{
+public class AddSegment extends Command {
     private Point pressedPoint;				// Where the user clicks
     private int numDrags;		// Number of times executeDrag is called
 
-    public AddRectangle() {
+    public AddSegment() {
         pressedPoint = null;
         numDrags = 0;
     }
@@ -30,7 +29,7 @@ public class AddRectangle extends Command
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numDrags == 0) {
-            dwg.addShape(new Rectangle(
+            dwg.addShape(new Segment(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
@@ -38,7 +37,7 @@ public class AddRectangle extends Command
                     Color.blue));
         }
         else {
-            dwg.replaceFront(new Rectangle(
+            dwg.replaceFront(new Segment(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
