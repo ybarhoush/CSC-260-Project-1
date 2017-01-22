@@ -154,7 +154,7 @@ public class Editor extends JApplet {
    */
   private class LineButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
-      //cmd = new AddSegment();
+      cmd = new AddSegment();
       repaint();
     }
   }
