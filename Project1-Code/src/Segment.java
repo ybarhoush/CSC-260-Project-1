@@ -54,7 +54,17 @@ public class Segment extends Shape
      */
     public boolean containsPoint(Point p)
     {
-        return false;
+        boolean distanceToPoint;
+        boolean withinTolerance;
+        distanceToPoint = distanceToPoint(p,left,top,width,height) <= tolerance;
+        withinTolerance = almostContainsPoint(p,
+                Math.min(left,width),
+                Math.min(top,height),
+                Math.max(width,left),
+                Math.max(height,top),
+                tolerance);
+
+                return distanceToPoint && withinTolerance;
     }
 
     /**
@@ -65,8 +75,8 @@ public class Segment extends Shape
      */
     public void move(int deltaX, int deltaY)
     {
-        left += deltaX;
-        top += deltaY;
+        width += deltaX;
+        height += deltaY;
     }
 
     /**
