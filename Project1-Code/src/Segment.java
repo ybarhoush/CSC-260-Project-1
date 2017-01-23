@@ -31,7 +31,7 @@ public class Segment extends Shape
      * @param y2
      * @param color
      */
-    public Segment(int x1,int y1,int x2,int y2,Color color) 
+    public Segment(int x1,int y1,int x2,int y2,Color color)
     {
         super(color);
         this.x1 = x1;
