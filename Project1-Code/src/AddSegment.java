@@ -7,8 +7,8 @@
 import java.awt.*;
 
 public class AddSegment extends Command {
-    private Point pressedPoint;				                                // Where the user clicks
-    private int numOfDrags;		                                        // Number of times executeDrag is called
+    private Point pressedPoint;				                                //point clicked by user
+    private int numOfDrags;		                                            // # of times executeDrag is called
 
     public AddSegment()
     {

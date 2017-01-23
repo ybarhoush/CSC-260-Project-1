@@ -8,8 +8,6 @@ import java.awt.*;
  * @author Yazan Barhoush
  */
 
-
-
 public class Drawing {
     public ArrayList<Shape> listOfShapes;      //list of Shapes
     private Color currentColor;               //current drawing color

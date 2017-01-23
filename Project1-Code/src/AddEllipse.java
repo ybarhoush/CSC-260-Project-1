@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class AddEllipse extends Command
 {
-    private Point pressedPoint;				                            // Where the user clicks
-    private int numOfDrags;		                                        // Number of times executeDrag is called
+    private Point pressedPoint;				                                //point clicked by user
+    private int numOfDrags;		                                            // # of times executeDrag is called
 
     public AddEllipse()
     {
@@ -18,7 +18,7 @@ public class AddEllipse extends Command
     }
 
     /**
-     * When pressed
+     * When pressed,
      * get the point clicked
      * and reset numOfDrags
      */
@@ -43,7 +43,7 @@ public class AddEllipse extends Command
                     dwg.getColor()));
         } else {
             dwg.listOfShapes.remove(dwg.listOfShapes.size() - 1);
-            dwg.listOfShapes.add(new Ellipse(                         //Replace the frontmost shape with a new shape.
+            dwg.listOfShapes.add(new Ellipse(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
