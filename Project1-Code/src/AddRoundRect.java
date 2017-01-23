@@ -1,17 +1,17 @@
 /**
- * AddRectangle Class
+ * Add Round Rectangle Class
  * adding Rectangle to the Drawing
  * Created by fedora on 1/21/17.
  */
 
 import java.awt.*;
 
-public class AddRectangle extends Command
+public class AddRoundRect extends Command
 {
     private Point pressedPoint;				                                //point clicked by user
     private int numOfDrags;		                                            // # of times executeDrag is called
 
-    public AddRectangle()
+    public AddRoundRect()
     {
         pressedPoint = null;
         numOfDrags = 0;
@@ -35,22 +35,32 @@ public class AddRectangle extends Command
      */
     public void executeDrag(Point p, Drawing dwg) {
         if (numOfDrags == 0) {
-            dwg.listOfShapes.add(new Rectangle(
+            dwg.listOfShapes.add(new RoundRectangle(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
-                    Math.abs(pressedPoint.x-p.x),
-                    Math.abs(pressedPoint.y-p.y),
+                        Math.abs(pressedPoint.x-p.x),
+                        Math.abs(pressedPoint.y-p.y),
+
+                    (int) (0.37*(Math.abs(pressedPoint.x-p.x))),
+                    (int) (0.37*(Math.abs(pressedPoint.y-p.y))),
+
                     dwg.getColor()));
         } else {
             dwg.listOfShapes.remove(dwg.listOfShapes.size() - 1);
-            dwg.listOfShapes.add(new Rectangle(                         //Replace the frontmost shape with a new shape.
+            dwg.listOfShapes.add(new RoundRectangle(                         //Replace the frontmost shape with a new shape.
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
+
+                    (int) (0.37*(Math.abs(pressedPoint.x-p.x))),
+                    (int) (0.37*(Math.abs(pressedPoint.y-p.y))),
+
                     dwg.getColor()));
         }
         numOfDrags++;
     }
+
+
 }
 
