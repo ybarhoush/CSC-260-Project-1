@@ -36,6 +36,7 @@ public class Editor extends JApplet {
 
     // Make JButton objects for all the command buttons.
     JButton rectButton = new JButton("Rectangle");
+    JButton roundRectButton = new JButton("Round Rect.");
     JButton ellipseButton = new JButton("Ellipse");
     JButton lineButton = new JButton("Line");
     JButton moveButton = new JButton("Move");
@@ -49,6 +50,7 @@ public class Editor extends JApplet {
 
     // Add listeners for all the command buttons.
     rectButton.addActionListener(new RectButtonListener());
+    roundRectButton.addActionListener(new roundRectButtonListener());
     ellipseButton.addActionListener(new EllipseButtonListener());
     lineButton.addActionListener(new LineButtonListener());
     moveButton.addActionListener(new MoveButtonListener());
@@ -68,9 +70,11 @@ public class Editor extends JApplet {
     shapePanel.setLayout(new FlowLayout());
     shapePanel.add(shapeLabel);
     rectButton.setBackground(Color.yellow);
+    roundRectButton.setBackground(Color.yellow);
     ellipseButton.setBackground(Color.yellow);
     lineButton.setBackground(Color.yellow);
     shapePanel.add(rectButton);
+    shapePanel.add(roundRectButton);
     shapePanel.add(ellipseButton);
     shapePanel.add(lineButton);
 
@@ -138,6 +142,17 @@ public class Editor extends JApplet {
       repaint();
     }
   }
+
+  /**
+   * What to do when roundRectButton is pressed.
+   */
+  private class roundRectButtonListener implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+      cmd = new AddRoundRect();
+      repaint();
+    }
+  }
+
 
   /**
    * What to do when ellipseButton is pressed.
