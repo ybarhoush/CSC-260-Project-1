@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.awt.*;
 
@@ -69,17 +68,6 @@ public class Drawing {
     }
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
-    /**
-     * Replace the frontmost shape with a new shape.
-     * called by: Add'Shape'.java
-     *
-     * @param shape
-     */
-    public void replaceFront(Shape shape) {
-        listOfShapes.remove(listOfShapes.size() - 1);
-        listOfShapes.add(shape);
-    }
-
     /**
      * Removes a shape from the drawing.
      * called by: DeleteCmd.java

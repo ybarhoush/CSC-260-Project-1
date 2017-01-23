@@ -6,44 +6,51 @@
 
 import java.awt.*;
 
-public class AddEllipse extends Command {
-    private Point pressedPoint;				// Where the user clicks
-    private int numDrags;		// Number of times executeDrag is called
+public class AddEllipse extends Command
+{
+    private Point pressedPoint;				                            // Where the user clicks
+    private int numOfDrags;		                                        // Number of times executeDrag is called
 
-    public AddEllipse() {
+    public AddEllipse()
+    {
         pressedPoint = null;
-        numDrags = 0;
+        numOfDrags = 0;
     }
 
     /**
-     * On press, get the click point and reset numDrags
+     * When pressed
+     * get the point clicked
+     * and reset numOfDrags
      */
     public void executePress(Point p, Drawing dwg) {
         pressedPoint = p;
-        numDrags = 0;
+        numOfDrags = 0;
     }
 
     /**
-     * On drag, add new shape if it's the first drag, and replace that shape with
-     * a new shape if it's at least the second drag.
+     * When dragged,
+     * if it is the first drag, add a new shape
+     * else (more than one drag), delete that shape
+     * and add the new shape to be the frontmost
      */
     public void executeDrag(Point p, Drawing dwg) {
-        if (numDrags == 0) {
+        if (numOfDrags == 0) {
             dwg.listOfShapes.add(new Ellipse(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
                     dwg.getColor()));
-        }
-        else {
-            dwg.replaceFront(new Ellipse(
+        } else {
+            dwg.listOfShapes.remove(dwg.listOfShapes.size() - 1);
+            dwg.listOfShapes.add(new Ellipse(                         //Replace the frontmost shape with a new shape.
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
                     Math.abs(pressedPoint.x-p.x),
                     Math.abs(pressedPoint.y-p.y),
                     dwg.getColor()));
         }
-        numDrags++;
+        numOfDrags++;
     }
 }
+
