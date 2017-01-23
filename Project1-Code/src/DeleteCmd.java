@@ -1,4 +1,5 @@
 /**
+ * Delete Cmd Class
  * Created by fedora on 1/21/17.
  */
 import java.awt.*;

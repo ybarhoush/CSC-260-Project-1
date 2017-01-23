@@ -9,22 +9,24 @@ import java.awt.*;
 public class AddEllipse extends Command
 {
     private Point pressedPoint;				                                //point clicked by user
-    private int numOfDrags;		                                            // # of times executeDrag is called
+    private int numOfDragShapes;		                                    // # of times executeDrag is called
 
     public AddEllipse()
     {
         pressedPoint = null;
-        numOfDrags = 0;
+        numOfDragShapes = 0;
     }
 
     /**
      * When pressed,
      * get the point clicked
-     * and reset numOfDrags
+     * and reset numOfDragShapes
+     * @param dwg
+     * @param p
      */
     public void executePress(Point p, Drawing dwg) {
         pressedPoint = p;
-        numOfDrags = 0;
+        numOfDragShapes = 0;
     }
 
     /**
@@ -32,9 +34,11 @@ public class AddEllipse extends Command
      * if it is the first drag, add a new shape
      * else (more than one drag), delete that shape
      * and add the new shape to be the frontmost
+     * @param dwg
+     * @param p
      */
     public void executeDrag(Point p, Drawing dwg) {
-        if (numOfDrags == 0) {
+        if (numOfDragShapes == 0) {
             dwg.listOfShapes.add(new Ellipse(
                     Math.min(pressedPoint.x,p.x),
                     Math.min(pressedPoint.y,p.y),
@@ -50,7 +54,7 @@ public class AddEllipse extends Command
                     Math.abs(pressedPoint.y-p.y),
                     dwg.getColor()));
         }
-        numOfDrags++;
+        numOfDragShapes++;
     }
 }
 
